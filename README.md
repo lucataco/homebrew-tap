@@ -1,81 +1,57 @@
-# Homebrew Tap
+# lucataco's Homebrew Tap
 
-Homebrew tap for lucataco's macOS tools.
+Homebrew tap for lucataco's CLI tools and macOS apps.
 
-## Setup
+## Install
 
 ```bash
 brew tap lucataco/tap
 ```
 
-## Available Formulas
-
-| Formula | Description | Version |
-|---------|-------------|---------|
-| `kokoro-cli` | Fast local text-to-speech CLI using Kokoro-82M on Apple Silicon via MLX | 0.1.0 |
-| `parakeet-cli` | Local speech-to-text CLI powered by NVIDIA Parakeet TDT via ONNX Runtime | 0.1.0 |
-
-### Install kokoro-cli
+## Install Packages
 
 ```bash
-brew install lucataco/tap/kokoro-cli
+# formula
+brew install lucataco/tap/<name>
+
+# cask
+brew install --cask lucataco/tap/<name>
 ```
 
-Requires Apple Silicon (M1+). On first run, the TTS model (~170MB) is downloaded automatically.
+## Packages
+
+### Formulae
+
+- `kokoro-cli` - Fast local text-to-speech CLI using Kokoro-82M on Apple Silicon via MLX
+- `parakeet-cli` - Local speech-to-text CLI powered by NVIDIA Parakeet TDT via ONNX Runtime
+
+### Casks
+
+- `hiddenapp` - macOS menu bar utility that hides other apps' status bar icons
+- `superkeet` - Local macOS voice-to-text menu bar app powered by Parakeet
+
+## Update / Uninstall
 
 ```bash
-# Quick start
-kokoro --text "Hello world"
-echo "Hello world" | kokoro
-kokoro --list-voices
+brew update
+brew upgrade
 
-# Daemon mode (near-instant responses)
-kokoro serve --daemon
-kokoro --text "Fast speech"
-kokoro stop
+brew uninstall <formula>
+brew uninstall --cask <cask>
+
+# casks only: remove user data
+brew uninstall --cask --zap lucataco/tap/superkeet
 ```
 
-### Install parakeet-cli
+## Notes
 
-```bash
-brew install lucataco/tap/parakeet-cli
-```
+- Run `brew info lucataco/tap/<name>` for per-tool caveats, permissions, and setup steps.
+- Some tools download models or assets on first use.
+- `superkeet` may request microphone and Accessibility permissions.
 
-Requires Apple Silicon (M1+) and macOS. On first use, download the models:
+## Manual Cleanup (formulae)
 
-```bash
-parakeet download
-```
+Homebrew formulae do not support `--zap`. Delete these to fully reset local data:
 
-Models are cached locally at `~/Library/Application Support/parakeet/models/`.
-
-```bash
-# Quick start
-parakeet download
-parakeet devices
-parakeet listen
-
-# Daemon mode
-parakeet serve
-echo "toggle" | nc -U "$HOME/Library/Application Support/parakeet/run/daemon.sock"
-```
-
-## Available Casks
-
-| Cask | Description | Version |
-|------|-------------|---------|
-| `hiddenapp` | macOS menu bar utility that hides other apps' status bar icons | 1.0.0 |
-
-### Install hiddenapp
-
-```bash
-brew install --cask lucataco/tap/hiddenapp
-```
-
-## Uninstall
-
-```bash
-brew uninstall kokoro-cli
-brew uninstall parakeet-cli
-brew uninstall --cask hiddenapp
-```
+- `kokoro-cli`: `~/Library/Application Support/kokoro/` and related caches
+- `parakeet-cli`: `~/Library/Application Support/parakeet/` and related caches
