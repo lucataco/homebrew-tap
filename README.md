@@ -13,6 +13,7 @@ brew tap lucataco/tap
 | Formula | Description | Version |
 |---------|-------------|---------|
 | `kokoro-cli` | Fast local text-to-speech CLI using Kokoro-82M on Apple Silicon via MLX | 0.1.0 |
+| `parakeet-cli` | Local speech-to-text CLI powered by NVIDIA Parakeet TDT via ONNX Runtime | 0.1.0 |
 
 ### Install kokoro-cli
 
@@ -34,6 +35,31 @@ kokoro --text "Fast speech"
 kokoro stop
 ```
 
+### Install parakeet-cli
+
+```bash
+brew install lucataco/tap/parakeet-cli
+```
+
+Requires Apple Silicon (M1+) and macOS. On first use, download the models:
+
+```bash
+parakeet download
+```
+
+Models are cached locally at `~/Library/Application Support/parakeet/models/`.
+
+```bash
+# Quick start
+parakeet download
+parakeet devices
+parakeet listen
+
+# Daemon mode
+parakeet serve
+echo "toggle" | nc -U "$HOME/Library/Application Support/parakeet/run/daemon.sock"
+```
+
 ## Available Casks
 
 | Cask | Description | Version |
@@ -50,5 +76,6 @@ brew install --cask lucataco/tap/hiddenapp
 
 ```bash
 brew uninstall kokoro-cli
+brew uninstall parakeet-cli
 brew uninstall --cask hiddenapp
 ```
