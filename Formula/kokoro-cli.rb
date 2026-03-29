@@ -1,6 +1,4 @@
 class KokoroCli < Formula
-  include Language::Python::Virtualenv
-
   desc "Fast local text-to-speech CLI using Kokoro-82M on Apple Silicon via MLX"
   homepage "https://github.com/lucataco/kokoro-cli"
   url "https://github.com/lucataco/kokoro-cli/archive/refs/tags/v0.1.1.tar.gz"
@@ -12,8 +10,21 @@ class KokoroCli < Formula
   depends_on arch: :arm64
   depends_on :macos
 
+  def python3
+    "python3.12"
+  end
+
   def install
-    virtualenv_install_with_resources
+    # Create a virtualenv and install kokoro-cli with all dependencies.
+    # We use pip install with full dependency resolution rather than
+    # virtualenv_install_with_resources (which requires manually listing
+    # 50+ resource blocks) because kokoro-cli has a large native ML
+    # dependency tree (MLX, numpy, spaCy, etc.).
+    venv = libexec
+    system python3, "-m", "venv", venv
+    system venv/"bin/pip", "install", "--upgrade", "pip"
+    system venv/"bin/pip", "install", buildpath
+    bin.install_symlink venv/"bin/kokoro"
   end
 
   def caveats
