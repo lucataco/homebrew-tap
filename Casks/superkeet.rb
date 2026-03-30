@@ -1,6 +1,6 @@
 cask "superkeet" do
-  version "1.0.6"
-  sha256 "799634bedbe8bc55dff6086f80d2ebb70bf352760f8395db59a44bc4d4b018c3"
+  version "1.0.8"
+  sha256 "d546d07f4d29313700b9d68fdd733ec0940367cec9aa563cd70c5203eadb1ab5"
 
   url "https://github.com/lucataco/superkeet/releases/download/v#{version}/Superkeet-#{version}.zip"
   name "Superkeet"
