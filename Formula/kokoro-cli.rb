@@ -1,8 +1,8 @@
 class KokoroCli < Formula
   desc "Fast local text-to-speech CLI using Kokoro-82M on Apple Silicon via MLX"
   homepage "https://github.com/lucataco/kokoro-cli"
-  url "https://github.com/lucataco/kokoro-cli/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "80a977cba1c6f14a78616fb27df7ca2ad154a7c2318777853c5b94ecc9435a95"
+  url "https://github.com/lucataco/kokoro-cli/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "674351f880cb5ffdf2517638c27cd212d292dc49efa6ad0ee6f50474263e50a1"
   license "Apache-2.0"
 
   depends_on "python@3.12"
