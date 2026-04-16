@@ -1,8 +1,8 @@
 class NeuttsAirCli < Formula
   desc "Local Apple Silicon text-to-speech CLI for Neuphonic NeuTTS Nano"
   homepage "https://github.com/lucataco/neutts-air-cli"
-  url "https://github.com/lucataco/neutts-air-cli/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "a1b3610452199928e34d60941ad68fc3d364ef50c4eb87c0d0f0529d0f58ce63"
+  url "https://github.com/lucataco/neutts-air-cli/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "REPLACE_WITH_V0_1_1_TARBALL_SHA256"
   license "Apache-2.0"
 
   depends_on "python@3.12"
@@ -12,7 +12,10 @@ class NeuttsAirCli < Formula
   depends_on :macos
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "."), "--bin", "neutts"
+    system "cargo", "build", "--release", "--locked", "--bin", "neutts"
+    pkgshare.install "python"
+    libexec.install "target/release/neutts"
+    (bin/"neutts").write_env_script libexec/"neutts", NEUTTS_PYTHON_DIR: pkgshare/"python"
   end
 
   def caveats
