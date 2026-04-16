@@ -23,6 +23,7 @@ brew install --cask lucataco/tap/<name>
 ### Formulae
 
 - `kokoro-cli` - Fast local text-to-speech CLI using Kokoro-82M on Apple Silicon via MLX
+- `neutts-air-cli` - Local Apple Silicon text-to-speech CLI for Neuphonic NeuTTS Nano
 - `parakeet-cli` - Local speech-to-text CLI powered by NVIDIA Parakeet TDT via ONNX Runtime
 
 ### Casks
