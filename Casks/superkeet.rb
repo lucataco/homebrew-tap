@@ -7,9 +7,19 @@ cask "superkeet" do
   desc "Local voice-to-text menu bar app powered by Parakeet"
   homepage "https://github.com/lucataco/superkeet"
 
+  depends_on arch: :arm64
   depends_on macos: :sonoma
 
   app "Superkeet.app"
+
+  uninstall quit: "com.superkeet.app"
+
+  caveats <<~EOS
+    Superkeet runs speech recognition locally on your Mac.
+
+    On first launch, macOS may ask for Microphone access. Accessibility access is
+    required for global shortcuts and automatic paste.
+  EOS
 
   zap trash: [
     "~/Library/Application Support/Superkeet",
