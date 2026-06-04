@@ -1,8 +1,8 @@
 class ParakeetCli < Formula
   desc "Local speech-to-text CLI powered by NVIDIA Parakeet TDT via ONNX Runtime"
   homepage "https://github.com/lucataco/parakeet-cli"
-  url "https://github.com/lucataco/parakeet-cli/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "0720ee0bc587215e8e3bbf8c05d986a3dbc1c945e90327a66cac19172c0a2686"
+  url "https://github.com/lucataco/parakeet-cli/archive/refs/tags/v0.1.4.tar.gz"
+  sha256 "840adc328d8181ce025a310f1d82090cd32719f80f0dabe08245d059f0bb433d"
   license "Apache-2.0"
 
   depends_on "rust" => :build
