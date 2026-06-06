@@ -22,4 +22,12 @@ cask "info" do
     "~/Library/Caches/com.info.app",
     "~/Library/Preferences/com.info.app.plist",
   ]
+
+  caveats <<~EOS
+    Info is a menu-bar-only app. After install, launch it from Applications or run:
+
+      open -a Info
+
+    It will appear in the macOS menu bar, not the Dock.
+  EOS
 end
