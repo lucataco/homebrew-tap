@@ -1,6 +1,6 @@
 cask "info" do
-  version "0.1.0"
-  sha256 "c357bc02acc54225c8bbcd1848a9d82f941eb1d8d7ea19f8ca7cd6d65d249784"
+  version "0.2.0"
+  sha256 "e79b6019103ed4daf362ce8a74f6db8a1591aad31de50758282bdcf45c57e161"
 
   url "https://github.com/lucataco/Info/releases/download/v#{version}/Info-#{version}.zip"
   name "Info"
