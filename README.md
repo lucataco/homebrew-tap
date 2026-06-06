@@ -49,6 +49,7 @@ brew uninstall --cask --zap lucataco/tap/superkeet
 
 - Run `brew info lucataco/tap/<name>` for per-tool caveats, permissions, and setup steps.
 - Some tools require a one-time model download during setup or fetch assets on first use.
+- `info` is a menu-bar-only app; launch it with `open -a Info` after install.
 - `superkeet` may request microphone and Accessibility permissions.
 
 ## Manual Cleanup (formulae)
