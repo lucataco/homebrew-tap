@@ -29,6 +29,7 @@ brew install --cask lucataco/tap/<name>
 ### Casks
 
 - `hiddenapp` - macOS menu bar utility that hides other apps' status bar icons
+- `info` - macOS menu bar system monitor for CPU, GPU, memory, and network
 - `superkeet` - Local macOS voice-to-text menu bar app powered by Parakeet
 
 ## Update / Uninstall
