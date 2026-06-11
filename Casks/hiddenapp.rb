@@ -7,7 +7,7 @@ cask "hiddenapp" do
   desc "Menu bar utility that hides other apps' status bar icons"
   homepage "https://github.com/lucataco/hiddenApp"
 
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
 
   app "hiddenapp.app"
 
