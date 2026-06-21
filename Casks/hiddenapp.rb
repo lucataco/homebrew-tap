@@ -11,10 +11,12 @@ cask "hiddenapp" do
 
   app "hiddenapp.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/hiddenapp.app"]
-  end
+  uninstall quit: "com.catacolabs.hiddenapp"
 
   zap trash: "~/Library/Preferences/com.catacolabs.hiddenapp.plist"
+
+  livecheck do
+    url :url
+    strategy :github_releases
+  end
 end
