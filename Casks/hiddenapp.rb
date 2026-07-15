@@ -1,6 +1,6 @@
 cask "hiddenapp" do
-  version "1.1.0"
-  sha256 "b4ec8125e96aeba80d4d22890153295013e8e277dfcfaa2c7d2408a5e6728a1b"
+  version "1.1.1"
+  sha256 "b6dce5af410abe7b7baf02423c92c18f46ce1653737bb1d850ce915d93f5f341"
 
   url "https://github.com/lucataco/hiddenApp/releases/download/v#{version}/HiddenApp-#{version}.zip"
   name "HiddenApp"
