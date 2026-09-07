@@ -11,9 +11,8 @@ cask "info" do
 
   app "Info.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Info.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Info.app"]
   end
 
   uninstall quit: "com.info.app"
