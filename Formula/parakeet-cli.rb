@@ -1,8 +1,8 @@
 class ParakeetCli < Formula
   desc "Local speech-to-text CLI powered by NVIDIA Parakeet TDT via ONNX Runtime"
   homepage "https://github.com/lucataco/parakeet-cli"
-  url "https://github.com/lucataco/parakeet-cli/archive/refs/tags/v0.1.6.tar.gz"
-  sha256 "63ef148eff308c2dfeb85e60080ca13192f52471f7e263c73e69a4807e195d98"
+  url "https://github.com/lucataco/parakeet-cli/archive/refs/tags/v0.1.10.tar.gz"
+  sha256 "d96a5eaacd5bc97f201c4c21eea2c7cbb5737378743df87b9def6e7bf87718d3"
   license "Apache-2.0"
 
   depends_on "rust" => :build
@@ -36,15 +36,16 @@ class ParakeetCli < Formula
         parakeet serve
         echo "toggle" | nc -U "$HOME/Library/Application Support/parakeet/run/daemon.sock"
 
-      Daemon stdout uses newline-delimited JSON (protocol 1).
-      Read transcript text from complete events and wait for completion
-      before starting the next recording.
+      Daemon stdout uses newline-delimited JSON (protocol 2).
+      Read transcript text from complete events. Send "partials": true with
+      start to stream interim text, and "keep_warm": true with stop to keep
+      the microphone open for the next recording.
     EOS
   end
 
   test do
     assert_match "Usage: parakeet", shell_output("#{bin}/parakeet --help")
     assert_match "parakeet-tdt-0.6b-v3", shell_output("#{bin}/parakeet download --help")
-    assert_equal "1\n", shell_output("#{bin}/parakeet protocol-version")
+    assert_equal "2\n", shell_output("#{bin}/parakeet protocol-version")
   end
 end
